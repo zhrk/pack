@@ -1,13 +1,6 @@
 {
-  "name": "@zhrk/stylelint-config",
-  "version": "1.0.3",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "name": "@zhrk/pack",
+  "version": "1.0.0",
   "license": "ISC",
   "dependencies": {
     "postcss-scss": "4.0.9",
