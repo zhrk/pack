@@ -1,10 +1,14 @@
 {
   "name": "@zhrk/pack",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "license": "ISC",
+  "scripts": {
+    "release": "npm publish --access public",
+    "upgrade": "npx npm-check --update --save-exact"
+  },
   "dependencies": {
     "postcss-scss": "4.0.9",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "prettier-plugin-sort-json": "3.1.0",
     "stylelint-order": "6.0.4"
   }

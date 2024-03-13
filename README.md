@@ -1,3 +1,0 @@
-```
-npm publish --access public
-```
