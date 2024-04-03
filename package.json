@@ -1,6 +1,6 @@
 {
   "name": "@zhrk/pack",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "ISC",
   "scripts": {
     "release": "npm publish --access public",
@@ -9,7 +9,7 @@
     "build": "webpack --mode production"
   },
   "bin": {
-    "zhrk-pack": "./bin/zhrk-pack.js"
+    "zhrk-pack": "./.bin/zhrk-pack.js"
   },
   "dependencies": {
     "@svgr/webpack": "8.1.0",
