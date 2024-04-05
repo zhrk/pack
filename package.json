@@ -1,13 +1,13 @@
 {
   "name": "@zhrk/pack",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "ISC",
   "scripts": {
     "release": "npm publish --access public",
     "upgrade": "npx npm-check --update --save-exact"
   },
   "bin": {
-    "@zhrk-pack": "./.bin/@zhrk-pack.js"
+    "zhrk-scripts": "./.bin/zhrk-scripts.js"
   },
   "dependencies": {
     "@svgr/webpack": "8.1.0",
