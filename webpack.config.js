@@ -15,9 +15,10 @@ const extensions = ['.tsx', '.ts', '.js'];
 
 module.exports = (_, argv) => {
   const isDev = argv.mode !== 'production';
+  const cwd = process.cwd();
 
   let plugins = [
-    new HtmlWebpackPlugin({ template: path.join(__dirname, 'public', 'index.html') }),
+    new HtmlWebpackPlugin({ template: path.join(cwd, 'public', 'index.html') }),
     new CopyPlugin({
       patterns: [
         {
@@ -43,10 +44,10 @@ module.exports = (_, argv) => {
   }
 
   return {
-    entry: path.resolve(__dirname, 'src/index.tsx'),
+    entry: path.resolve(cwd, 'src/index.tsx'),
     output: {
       filename: '[contenthash].[name].js',
-      path: path.resolve(__dirname, 'build'),
+      path: path.resolve(cwd, 'build'),
       publicPath: '/',
     },
     stats: 'minimal',

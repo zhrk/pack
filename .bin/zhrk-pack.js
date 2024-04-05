@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+
+const path = require('node:path'); 
 const { spawnSync } = require("child_process");
 
 // chalk для ошибки несуществуюего скрипта
@@ -7,9 +9,11 @@ const { spawnSync } = require("child_process");
 
 const script = process.argv[2];
 
+const webpackConfigPath = path.join(__dirname, "../webpack.config.js")
+
 const scripts = {
-  start: { command: "webpack", args: ["serve", "--mode", "development"] },
-  build: { command: "webpack", args: ["--mode", "production"] },
+  start: { command: "webpack", args: ["serve", "--mode", "development", "--config", webpackConfigPath] },
+  build: { command: "webpack", args: ["--mode", "production", "--config", webpackConfigPath] },
 };
 
 const { command, args } = scripts[script];
