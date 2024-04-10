@@ -1,0 +1,20 @@
+import { defineConfig } from '@rsbuild/core';
+import { pluginEslint } from '@rsbuild/plugin-eslint';
+import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSvgr } from '@rsbuild/plugin-svgr';
+import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+
+// отображение ошибок eslint, prettier, typescript
+
+export default defineConfig({
+  server: { port: 3000 },
+  plugins: [
+    pluginReact(),
+    pluginEslint({ eslintPluginOptions: { emitWarning: false } }),
+    pluginTypeCheck({ forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
+    pluginSvgr({ svgrOptions: { ref: true, exportType: 'default' } }),
+  ],
+  dev: { startUrl: true },
+  html: { template: './public/index.html' },
+  output: { distPath: { root: 'build' }, cssModules: { localIdentName: '[local]_[hash:5]' } },
+});

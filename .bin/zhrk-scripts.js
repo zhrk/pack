@@ -10,10 +10,13 @@ const { spawnSync } = require("child_process");
 const script = process.argv[2];
 
 const webpackConfigPath = path.join(__dirname, "../webpack.config.js")
+const rsbuildConfigPath = path.join(__dirname, "../rsbuild.config.ts")
 
 const scripts = {
   start: { command: "webpack", args: ["serve", "--mode", "development", "--config", webpackConfigPath] },
   build: { command: "webpack", args: ["--mode", "production", "--config", webpackConfigPath] },
+  ['start:rsbuild']: { command: "rsbuild", args: ["dev", "--config", rsbuildConfigPath] },
+  ['build:rsbuild']: { command: "rsbuild", args: ["build", "--config", rsbuildConfigPath] },
 };
 
 const { command, args } = scripts[script];

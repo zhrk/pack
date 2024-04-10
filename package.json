@@ -1,6 +1,6 @@
 {
   "name": "@zhrk/pack",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "ISC",
   "scripts": {
     "release": "npm publish --access public",
@@ -10,6 +10,11 @@
     "zhrk-scripts": "./.bin/zhrk-scripts.js"
   },
   "dependencies": {
+    "@rsbuild/core": "0.6.0",
+    "@rsbuild/plugin-eslint": "0.6.0",
+    "@rsbuild/plugin-react": "0.6.0",
+    "@rsbuild/plugin-svgr": "0.6.0",
+    "@rsbuild/plugin-type-check": "0.6.0",
     "@svgr/webpack": "8.1.0",
     "@tanstack/eslint-plugin-query": "5.28.6",
     "@typescript-eslint/eslint-plugin": "7.3.1",
