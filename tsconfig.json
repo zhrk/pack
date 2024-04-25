@@ -19,5 +19,4 @@
     "strict": true,
     "sourceMap": true
   },
-  "include": ["src"]
 }
