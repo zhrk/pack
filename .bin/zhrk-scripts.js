@@ -5,20 +5,21 @@ const { spawnSync } = require("child_process");
 
 // chalk для ошибки несуществуюего скрипта
 // обработать занятый порт
-// вынести тесты
 // команда для генерации index.html или его обновления?
 // команда для генерации всей структуры
 
 const script = process.argv[2];
 
-const webpackConfigPath = path.join(__dirname, "../webpack.config.js")
-const rsbuildConfigPath = path.join(__dirname, "../rsbuild.config.ts")
+const webpackConfigPath = path.join(__dirname, "../webpack.config.js");
+const rsbuildConfigPath = path.join(__dirname, "../rsbuild.config.ts");
+const vitestConfigPath = path.join(__dirname, "../vitest.config.ts");
 
 const scripts = {
   start: { command: "webpack", args: ["serve", "--mode", "development", "--config", webpackConfigPath] },
   build: { command: "webpack", args: ["--mode", "production", "--config", webpackConfigPath] },
   ['start:rsbuild']: { command: "rsbuild", args: ["dev", "--config", rsbuildConfigPath] },
   ['build:rsbuild']: { command: "rsbuild", args: ["build", "--config", rsbuildConfigPath] },
+  test: { command: "vitest", args: ["--config", vitestConfigPath] },
 };
 
 const { command, args } = scripts[script];
