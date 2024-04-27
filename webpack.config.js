@@ -83,7 +83,9 @@ module.exports = (_, argv) => {
             isDev ? 'style-loader' : { loader: MiniCssExtractPlugin.loader },
             {
               loader: 'css-loader',
-              options: { modules: { auto: true, localIdentName: '[local]_[hash:5]' } },
+              options: {
+                modules: { auto: true, namedExport: false, localIdentName: '[local]_[hash:5]' },
+              },
             },
             {
               loader: 'postcss-loader',
