@@ -48,7 +48,7 @@ module.exports = (_, argv) => {
     output: {
       filename: '[contenthash].[name].js',
       path: path.resolve(cwd, 'build'),
-      publicPath: isDev ? '/' : './',
+      publicPath: '/',
     },
     stats: 'minimal',
     devtool: 'source-map',
