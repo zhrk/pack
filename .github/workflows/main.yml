@@ -1,17 +1,6 @@
 name: Publish to NPM
 on: [push]
 jobs:
-  bump-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4.1.4
-      - run: cat ./package.json
-      - uses: actions/setup-node@v4.0.2
-      - uses: 'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: cat ./package.json
-
   publish:
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +8,11 @@ jobs:
       - uses: actions/setup-node@v4.0.2
         with:
           registry-url: 'https://registry.npmjs.org'
+      - run: cat ./package.json
+      - uses: 'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: cat ./package.json
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
