@@ -12,11 +12,15 @@ jobs:
       - uses: 'phips28/gh-action-bump-version@master'
         with:
           skip-tag: 'true'
+          major-wording: ''
+          minor-wording: ''
+          patch-wording: ''
+          rc-wording: ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ secrets.NAME }}
           GITHUB_EMAIL: ${{ secrets.EMAIL }}
       - run: cat ./package.json
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
