@@ -7,7 +7,7 @@
     "upgrade": "npx npm-check --update --save-exact"
   },
   "bin": {
-    "zhrk-scripts": "./.bin/zhrk-scripts.js"
+    "zhrk-scripts": ".bin/zhrk-scripts.js"
   },
   "dependencies": {
     "@rsbuild/core": "0.6.7",
