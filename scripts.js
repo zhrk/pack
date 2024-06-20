@@ -56,6 +56,6 @@ program
   .command('build:rsbuild')
   .action(() => runScript('webpack', ['build', '--config', rsbuildConfigPath]));
 
-program.command('vitest').action(() => runScript('webpack', ['--config', vitestConfigPath]));
+program.command('test').action(() => runScript('vitest', ['--config', vitestConfigPath]));
 
 program.parse(process.argv);
