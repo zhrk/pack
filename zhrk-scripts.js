@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const { spawnSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 const { Command } = require('commander');
-const { spawnSync } = require('node:child_process');
 
 // chalk для ошибки несуществуюего скрипта
 // обработать занятый порт
@@ -14,9 +16,9 @@ const { spawnSync } = require('node:child_process');
 const cwd = process.cwd();
 const program = new Command();
 
-const webpackConfigPath = path.join(__dirname, '../webpack.config.js');
-const rsbuildConfigPath = path.join(__dirname, '../rsbuild.config.ts');
-const vitestConfigPath = path.join(__dirname, '../vitest.config.ts');
+const webpackConfigPath = path.join(__dirname, './webpack.config.js');
+const rsbuildConfigPath = path.join(__dirname, './rsbuild.config.ts');
+const vitestConfigPath = path.join(__dirname, './vitest.config.ts');
 
 const runScript = (command, args) => {
   const options = program.opts();
