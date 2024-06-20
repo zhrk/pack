@@ -9,6 +9,7 @@ const { spawnSync } = require('node:child_process');
 // обработать занятый порт
 // команда для генерации index.html или его обновления?
 // команда для генерации всей структуры
+// обработать падение билда
 
 const cwd = process.cwd();
 const program = new Command();
