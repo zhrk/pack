@@ -50,11 +50,11 @@ program
 
 program
   .command('start:rsbuild')
-  .action(() => runScript('webpack', ['dev', '--config', rsbuildConfigPath]));
+  .action(() => runScript('rsbuild', ['dev', '--config', rsbuildConfigPath]));
 
 program
   .command('build:rsbuild')
-  .action(() => runScript('webpack', ['build', '--config', rsbuildConfigPath]));
+  .action(() => runScript('rsbuild', ['build', '--config', rsbuildConfigPath]));
 
 program.command('test').action(() => runScript('vitest', ['--config', vitestConfigPath]));
 
