@@ -18,5 +18,8 @@ export default defineConfig({
   ],
   dev: { startUrl: true },
   html: { template: './public/index.html' },
-  output: { distPath: { root: 'build' }, cssModules: { localIdentName: '[local]_[hash:5]' } },
+  output: {
+    distPath: { root: 'build' },
+    cssModules: { namedExport: false, localIdentName: '[local]_[hash:5]' },
+  },
 });
