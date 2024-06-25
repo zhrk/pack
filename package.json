@@ -13,6 +13,7 @@
     "@rsbuild/core": "0.7.9",
     "@rsbuild/plugin-eslint": "0.7.9",
     "@rsbuild/plugin-react": "0.7.9",
+    "@rsbuild/plugin-sass": "0.7.9",
     "@rsbuild/plugin-svgr": "0.7.9",
     "@rsbuild/plugin-type-check": "0.7.9",
     "@svgr/webpack": "8.1.0",

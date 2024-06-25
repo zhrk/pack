@@ -1,6 +1,7 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginEslint } from '@rsbuild/plugin-eslint';
 import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
@@ -9,6 +10,7 @@ import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 export default defineConfig({
   server: { port: 3000 },
   plugins: [
+    pluginSass(),
     pluginReact(),
     pluginEslint({ eslintPluginOptions: { emitWarning: false } }),
     pluginTypeCheck({ forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
