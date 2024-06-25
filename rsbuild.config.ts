@@ -6,6 +6,7 @@ import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
 // отображение ошибок eslint, prettier, typescript
+// абсолютные импорты не работают в scss файлах
 
 export default defineConfig({
   server: { port: 3000 },
@@ -20,6 +21,6 @@ export default defineConfig({
   html: { template: './public/index.html' },
   output: {
     distPath: { root: 'build' },
-    cssModules: { namedExport: false, localIdentName: '[local]_[hash:5]' },
+    cssModules: { localIdentName: '[local]_[hash:5]' },
   },
 });
