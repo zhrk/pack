@@ -5,8 +5,7 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
-// отображение ошибок eslint, prettier, typescript
-// абсолютные импорты не работают в scss файлах
+// отображение ошибок eslint, typescript
 
 export default defineConfig({
   server: { port: 3000 },
