@@ -1,6 +1,6 @@
 {
   "name": "@zhrk/pack",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "license": "ISC",
   "scripts": {
     "release": "npm publish --access public",
