@@ -8,7 +8,6 @@ import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 // отображение ошибок eslint, typescript
 
 export default defineConfig({
-  server: { port: 3000 },
   plugins: [
     pluginSass(),
     pluginReact(),

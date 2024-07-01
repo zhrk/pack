@@ -6,12 +6,16 @@ const { spawnSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 const { Command } = require('commander');
+const detectPort = require('detect-port');
+const killPort = require('kill-port');
+const { PORT } = require('./config.ts');
 
-// chalk для ошибки несуществуюего скрипта
+// chalk сообщение при занятом порте
 // обработать занятый порт
-// команда для генерации index.html или его обновления?
-// команда для генерации всей структуры
 // обработать падение билда
+// команда для генерации всей структуры?
+// команда для генерации index.html или его обновления?
+// использовать node:utils parseArgs для CLI аргументов?
 
 const cwd = process.cwd();
 const program = new Command();
@@ -20,19 +24,27 @@ const webpackConfigPath = path.join(__dirname, './webpack.config.js');
 const rsbuildConfigPath = path.join(__dirname, './rsbuild.config.ts');
 const vitestConfigPath = path.join(__dirname, './vitest.config.ts');
 
-const runScript = (command, args) => {
-  const options = program.opts();
+const runScript = async (command, args) => {
+  const detectedPort = await detectPort(PORT);
 
-  const run = () => spawnSync(command, args, { shell: true, stdio: 'inherit' });
+  if (detectedPort === PORT) {
+    const options = program.opts();
 
-  if (options.runCondition) {
-    const [condition, value] = options.runCondition;
+    const run = () => spawnSync(command, args, { shell: true, stdio: 'inherit' });
 
-    if (condition === 'no-folder-exists') {
-      if (!fs.existsSync(path.join(cwd, value))) run();
+    if (options.runCondition) {
+      const [condition, value] = options.runCondition;
+
+      if (condition === 'no-folder-exists') {
+        if (!fs.existsSync(path.join(cwd, value))) run();
+      }
+    } else {
+      run();
     }
   } else {
-    run();
+    await killPort(PORT);
+
+    runScript(command, args);
   }
 };
 

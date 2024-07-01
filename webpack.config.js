@@ -6,6 +6,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const { PORT } = require('./config.ts');
 
 const extensions = ['.tsx', '.ts', '.js'];
 
@@ -54,7 +55,7 @@ module.exports = (_, argv) => {
     devtool: 'source-map',
     infrastructureLogging: { level: 'info' },
     devServer: {
-      port: 3000,
+      port: PORT,
       open: true,
       hot: true,
       compress: false,
