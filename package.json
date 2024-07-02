@@ -4,7 +4,8 @@
   "license": "ISC",
   "scripts": {
     "release": "npm publish --access public",
-    "upgrade": "npx npm-check --update --save-exact"
+    "upgrade": "npx npm-check --update --save-exact",
+    "start": "node ./scripts/start.js"
   },
   "bin": {
     "zhrk-scripts": "scripts.js"
@@ -55,6 +56,7 @@
     "vitest": "1.6.0",
     "webpack": "5.92.1",
     "webpack-cli": "5.1.4",
-    "webpack-dev-server": "5.0.4"
+    "webpack-dev-server": "5.0.4",
+    "yoctocolors-cjs": "2.1.1"
   }
 }
