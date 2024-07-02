@@ -3,22 +3,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { spawnSync } = require('node:child_process');
-const fs = require('node:fs');
 const path = require('node:path');
-const { Command } = require('commander');
 const detectPort = require('detect-port');
 const killPort = require('kill-port');
 const { PORT } = require('./config.ts');
 
 // chalk сообщение при занятом порте
-// обработать занятый порт
 // обработать падение билда
 // команда для генерации всей структуры?
 // команда для генерации index.html или его обновления?
-// использовать node:utils parseArgs для CLI аргументов?
-
-const cwd = process.cwd();
-const program = new Command();
 
 const webpackConfigPath = path.join(__dirname, './webpack.config.js');
 const rsbuildConfigPath = path.join(__dirname, './rsbuild.config.ts');
@@ -28,19 +21,7 @@ const runScript = async (command, args) => {
   const detectedPort = await detectPort(PORT);
 
   if (detectedPort === PORT) {
-    const options = program.opts();
-
-    const run = () => spawnSync(command, args, { shell: true, stdio: 'inherit' });
-
-    if (options.runCondition) {
-      const [condition, value] = options.runCondition;
-
-      if (condition === 'no-folder-exists') {
-        if (!fs.existsSync(path.join(cwd, value))) run();
-      }
-    } else {
-      run();
-    }
+    spawnSync(command, args, { shell: true, stdio: 'inherit' });
   } else {
     await killPort(PORT);
 
@@ -48,26 +29,19 @@ const runScript = async (command, args) => {
   }
 };
 
-program.option('-rc, --run-condition <value...>');
+const script = process.argv[2];
 
-program
-  .command('start')
-  .action(() =>
-    runScript('webpack', ['serve', '--mode', 'development', '--config', webpackConfigPath])
-  );
+const scripts = {
+  start: {
+    command: 'webpack',
+    args: ['serve', '--mode', 'development', '--config', webpackConfigPath],
+  },
+  build: { command: 'webpack', args: ['--mode', 'production', '--config', webpackConfigPath] },
+  'start:rsbuild': { command: 'rsbuild', args: ['dev', '--config', rsbuildConfigPath] },
+  'build:rsbuild': { command: 'rsbuild', args: ['build', '--config', rsbuildConfigPath] },
+  test: { command: 'vitest', args: ['--config', vitestConfigPath] },
+};
 
-program
-  .command('build')
-  .action(() => runScript('webpack', ['--mode', 'production', '--config', webpackConfigPath]));
+const { command, args } = scripts[script];
 
-program
-  .command('start:rsbuild')
-  .action(() => runScript('rsbuild', ['dev', '--config', rsbuildConfigPath]));
-
-program
-  .command('build:rsbuild')
-  .action(() => runScript('rsbuild', ['build', '--config', rsbuildConfigPath]));
-
-program.command('test').action(() => runScript('vitest', ['--config', vitestConfigPath]));
-
-program.parse(process.argv);
+runScript(command, args);
