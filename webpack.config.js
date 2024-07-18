@@ -85,7 +85,12 @@ module.exports = (_, argv) => {
             {
               loader: 'css-loader',
               options: {
-                modules: { auto: true, namedExport: false, localIdentName: '[local]_[hash:5]' },
+                modules: {
+                  auto: true,
+                  namedExport: false,
+                  exportLocalsConvention: 'as-is',
+                  localIdentName: '[local]_[hash:5]',
+                },
               },
             },
             {
