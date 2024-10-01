@@ -26,6 +26,7 @@ module.exports = (_, argv) => {
           from: 'public',
           to: '',
           globOptions: { ignore: ['**/index.html'] },
+          noErrorOnMissing: true,
         },
       ],
     }),
