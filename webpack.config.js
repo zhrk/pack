@@ -62,7 +62,7 @@ module.exports = (_, argv) => {
       compress: false,
       historyApiFallback: true,
       static: { publicPath: '/' },
-      client: { logging: 'warn' },
+      client: { logging: 'error' },
     },
     module: {
       rules: [
