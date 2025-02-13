@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('node:path');
-const runScript = require('./utils/runScript.js');
+const run = require('./utils/run.js');
 
 // обработать падение билда
 // команда для генерации всей структуры?
@@ -31,4 +31,4 @@ const scripts = {
 
 const { command, args } = scripts[script];
 
-runScript(command, args);
+run(command, args);

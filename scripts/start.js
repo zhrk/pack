@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const runScript = require('../utils/runScript');
+const run = require('../utils/run');
 
-runScript('node', ['scripts.js', 'start']);
+run('node', ['scripts.js', 'start']);
