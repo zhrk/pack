@@ -2,7 +2,6 @@
   "name": "@zhrk/pack",
   "version": "1.0.63",
   "license": "ISC",
-  "type": "module",
   "scripts": {
     "release": "npm publish --access public",
     "upgrade": "npx npm-check --update --save-exact",
