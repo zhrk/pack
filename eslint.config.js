@@ -9,8 +9,9 @@ const react = require("eslint-plugin-react");
 const { fixupPluginRules } = require("@eslint/compat");
 const globals = require("globals");
 const tsParser = require("@typescript-eslint/parser");
+const tseslint = require("typescript-eslint");
 
-module.exports = defineConfig([
+module.exports = tseslint.config([
   {
     plugins: {
       "react-hooks": fixupPluginRules(reactHooks),
