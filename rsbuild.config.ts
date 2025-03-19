@@ -5,12 +5,14 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
+const enable = process.env.NODE_ENV === 'development';
+
 export default defineConfig({
   plugins: [
     pluginSass(),
     pluginReact(),
-    pluginEslint({ eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
-    pluginTypeCheck({ forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
+    pluginEslint({ enable, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
+    pluginTypeCheck({ enable, forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   server: { open: true },
