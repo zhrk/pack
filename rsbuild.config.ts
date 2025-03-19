@@ -8,17 +8,15 @@ import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 const enable = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
+  dev: { cliShortcuts: false },
+  server: { open: true, printUrls: false, strictPort: true },
+  html: { template: './public/index.html' },
+  output: { distPath: { root: 'build' }, cssModules: { localIdentName: '[local]_[hash:5]' } },
   plugins: [
     pluginSass(),
     pluginReact(),
+    pluginTypeCheck({ enable }),
     pluginEslint({ enable, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
-    pluginTypeCheck({ enable, forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
-  server: { open: true },
-  html: { template: './public/index.html' },
-  output: {
-    distPath: { root: 'build' },
-    cssModules: { localIdentName: '[local]_[hash:5]' },
-  },
 });
