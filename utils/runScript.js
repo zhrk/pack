@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 const detectPort = require('detect-port');
 const killPort = require('kill-port');
 const { bgMagenta, whiteBright } = require('yoctocolors-cjs');
