@@ -18,6 +18,8 @@ export default defineConfig({
     pluginTypeCheck({ forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
+  // @ts-expect-error
+  dev: { startUrl: true },
   html: { template: './public/index.html' },
   output: {
     distPath: { root: 'build' },
