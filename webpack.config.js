@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -98,7 +97,10 @@ module.exports = (_, argv) => {
               loader: 'postcss-loader',
               options: { postcssOptions: { plugins: [['autoprefixer']] } },
             },
-            { loader: 'sass-loader' },
+            {
+              loader: 'sass-loader',
+              options: { api: 'legacy' },
+            },
           ],
         },
         {
