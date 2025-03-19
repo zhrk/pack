@@ -16,7 +16,7 @@ export default defineConfig({
     pluginReact(),
     pluginEslint({ eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
     pluginTypeCheck({ forkTsCheckerOptions: { typescript: { memoryLimit: 8192 } } }),
-    pluginSvgr({ svgrOptions: { ref: true, exportType: 'default' } }),
+    pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   html: { template: './public/index.html' },
   output: {
