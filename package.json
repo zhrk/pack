@@ -47,7 +47,7 @@
     "postcss-scss": "4.0.9",
     "prettier": "3.5.3",
     "prettier-plugin-sort-json": "4.1.1",
-    "sass": "1.86.0",
+    "sass-embedded": "1.86.0",
     "sass-loader": "16.0.5",
     "style-loader": "4.0.0",
     "stylelint-order": "6.0.4",

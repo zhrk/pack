@@ -97,10 +97,7 @@ module.exports = (_, argv) => {
               loader: 'postcss-loader',
               options: { postcssOptions: { plugins: [['autoprefixer']] } },
             },
-            {
-              loader: 'sass-loader',
-              options: { api: 'legacy' },
-            },
+            { loader: 'sass-loader' },
           ],
         },
         {
