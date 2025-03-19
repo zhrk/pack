@@ -42,6 +42,10 @@ module.exports = defineConfig({
 
     'import/extensions': ['.js', '.ts', '.tsx', '.json'],
     'import/ignore': ['node_modules', '\\.(scss|svg|json)$'],
+
+    react: {
+      version: 'detect',
+    },
   },
 
   rules: {
