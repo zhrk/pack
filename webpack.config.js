@@ -89,7 +89,7 @@ module.exports = (_, argv) => {
                   auto: true,
                   namedExport: false,
                   exportLocalsConvention: 'as-is',
-                  localIdentName: '[local]_[hash:5]',
+                  localIdentName: '[local]_[hash:6]',
                 },
               },
             },

@@ -11,7 +11,7 @@ export default defineConfig({
   dev: { cliShortcuts: false },
   server: { open: true, printUrls: false, strictPort: true },
   html: { template: './public/index.html' },
-  output: { distPath: { root: 'build' }, cssModules: { localIdentName: '[local]_[hash:5]' } },
+  output: { distPath: { root: 'build' }, cssModules: { localIdentName: '[local]_[hash:6]' } },
   plugins: [
     pluginSass(),
     pluginReact(),
