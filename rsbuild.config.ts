@@ -9,8 +9,8 @@ const enable = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
   dev: { cliShortcuts: false },
-  server: { open: true, printUrls: false, strictPort: true },
   html: { template: './public/index.html' },
+  server: { open: true, printUrls: false, strictPort: true, publicDir: { watch: true } },
   output: { distPath: { root: 'build' }, cssModules: { localIdentName: '[local]_[hash:6]' } },
   plugins: [
     pluginSass(),
