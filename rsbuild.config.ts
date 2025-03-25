@@ -19,4 +19,16 @@ export default defineConfig({
     pluginEslint({ enable, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
+  tools: {
+    postcss: (_, { addPlugins }) => {
+      addPlugins(
+        require('postcss-functions')({
+          functions: {
+            'color-opacity': (color: string, opacity: string) =>
+              `color-mix(in srgb, ${color}, transparent ${(1 - parseFloat(opacity)) * 100}%)`,
+          },
+        })
+      );
+    },
+  },
 });

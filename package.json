@@ -42,6 +42,7 @@
     "jsdom": "26.0.0",
     "kill-port": "2.0.1",
     "mini-css-extract-plugin": "2.9.2",
+    "postcss-functions": "4.0.2",
     "postcss-loader": "8.1.1",
     "postcss-scss": "4.0.9",
     "prettier": "3.5.3",
