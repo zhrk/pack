@@ -5,7 +5,7 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
-const enable = process.env.NODE_ENV === 'development';
+const dev = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
   dev: { cliShortcuts: false },
@@ -14,13 +14,13 @@ export default defineConfig({
   output: {
     distPath: { root: 'build' },
     cssModules: { localIdentName: '[local]_[hash:6]' },
-    sourceMap: { js: 'source-map' },
+    sourceMap: { js: dev ? 'source-map' : 'hidden-source-map' },
   },
   plugins: [
     pluginSass(),
     pluginReact(),
-    pluginTypeCheck({ enable }),
-    pluginEslint({ enable, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
+    pluginTypeCheck({ enable: dev }),
+    pluginEslint({ enable: dev, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   tools: {
