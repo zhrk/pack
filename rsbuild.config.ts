@@ -14,7 +14,7 @@ export default defineConfig({
   output: {
     distPath: { root: 'build' },
     cssModules: { localIdentName: '[local]_[hash:6]' },
-    sourceMap: { js: dev ? 'source-map' : 'hidden-source-map' },
+    sourceMap: dev ? { js: 'source-map', css: true } : { js: 'hidden-source-map' },
   },
   plugins: [
     pluginSass(),
