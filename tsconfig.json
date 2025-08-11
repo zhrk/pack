@@ -17,6 +17,7 @@
     "module": "ESNext",
     "strict": true,
     "skipLibCheck": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "erasableSyntaxOnly": true,
   },
 }
