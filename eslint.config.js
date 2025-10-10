@@ -10,7 +10,7 @@ const reactHooks = require('eslint-plugin-react-hooks');
 const globals = require('globals');
 
 module.exports = [
-  reactHooks.configs['recommended-latest'],
+  reactHooks.configs.flat.recommended,
   ...pluginQuery.configs['flat/recommended'],
   defineConfig({
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
