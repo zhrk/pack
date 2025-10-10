@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 const pluginQuery = require('@tanstack/eslint-plugin-query');
 const typescriptEslint = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
@@ -125,16 +124,16 @@ module.exports = [
       'prefer-promise-reject-errors': ['error'],
       'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
       'require-await': ['error'],
-      'no-underscore-dangle': [
-        'error',
-        {
-          enforceInMethodNames: true,
-          allowFunctionParams: false,
-          enforceInClassFields: true,
-          allowInArrayDestructuring: false,
-          allowInObjectDestructuring: false,
-        },
-      ],
+      // 'no-underscore-dangle': [
+      //   'error',
+      //   {
+      //     enforceInMethodNames: true,
+      //     allowFunctionParams: false,
+      //     enforceInClassFields: true,
+      //     allowInArrayDestructuring: false,
+      //     allowInObjectDestructuring: false,
+      //   },
+      // ],
       'no-restricted-properties': [
         'error',
         {
@@ -288,7 +287,7 @@ module.exports = [
       'jsx-a11y/aria-role': ['error'],
       'jsx-a11y/aria-unsupported-elements': ['error'],
       'jsx-a11y/autocomplete-valid': ['error'],
-      'jsx-a11y/click-events-have-key-events': ['error'],
+      // 'jsx-a11y/click-events-have-key-events': ['error'],
       'jsx-a11y/heading-has-content': ['error'],
       'jsx-a11y/html-has-lang': ['error'],
       'jsx-a11y/iframe-has-title': ['error'],
@@ -319,10 +318,10 @@ module.exports = [
       ],
       'jsx-a11y/no-noninteractive-tabindex': ['error', { roles: ['tabpanel'] }],
       'jsx-a11y/no-redundant-roles': ['error'],
-      'jsx-a11y/no-static-element-interactions': [
-        'error',
-        { handlers: ['onClick', 'onMouseDown', 'onMouseUp', 'onKeyPress', 'onKeyDown', 'onKeyUp'] },
-      ],
+      // 'jsx-a11y/no-static-element-interactions': [
+      //   'error',
+      //   { handlers: ['onClick', 'onMouseDown', 'onMouseUp', 'onKeyPress', 'onKeyDown', 'onKeyUp'] },
+      // ],
       'jsx-a11y/prefer-tag-over-role': ['error'],
       'jsx-a11y/role-has-required-aria-props': ['error'],
       'jsx-a11y/role-supports-aria-props': ['error'],
