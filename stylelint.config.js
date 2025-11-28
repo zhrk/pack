@@ -31,7 +31,7 @@ module.exports = {
       },
       {
         groupName: 'block-size',
-        properties: ['max-width', 'min-width', 'width', 'max-height', 'min-height', 'height'],
+        properties: ['max-width', 'min-width', 'width', 'max-height', 'min-height', 'height', 'aspect-ratio'],
       },
       {
         groupName: 'block-display',
@@ -57,6 +57,7 @@ module.exports = {
       {
         groupName: 'block-appearance',
         properties: [
+          'appearance',
           'box-shadow',
           'outline',
           'border-collapse',
@@ -97,6 +98,7 @@ module.exports = {
           'mask-repeat',
           'mask-position',
           'backdrop-filter',
+          'clip-path',
         ],
       },
       {
@@ -118,6 +120,7 @@ module.exports = {
           'white-space',
           'word-break',
           'overflow-wrap',
+          '-webkit-text-security',
         ],
       },
       {
@@ -145,6 +148,8 @@ module.exports = {
           'animation-fill-mode',
           'transition',
           'transition-property',
+          'transition-duration',
+          'transition-timing-function',
         ],
       },
       {
@@ -155,6 +160,7 @@ module.exports = {
           'overflow-y',
           'scrollbar-width',
           'scrollbar-color',
+          'scroll-margin-bottom',
           'scroll-padding-bottom',
           'overscroll-behavior',
         ],
