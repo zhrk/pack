@@ -1,7 +1,7 @@
 {
   "name": "@zhrk/pack",
-  "version": "0.0.13",
-  "license": "ISC",
+  "version": "0.0.12",
+  "repository": "https://github.com/zhrk/pack",
   "scripts": {
     "release": "npm publish --access public",
     "upgrade": "npx npm-check --update --save-exact",
