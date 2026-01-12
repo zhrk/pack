@@ -24,4 +24,5 @@ jobs:
           GITHUB_USER: ${{ secrets.NAME }}
           GITHUB_EMAIL: ${{ secrets.EMAIL }}
       - run: cat ./package.json
-      - run: NODE_AUTH_TOKEN="" npm publish
+      - run: |
+          NODE_AUTH_TOKEN="" npm publish
