@@ -9,6 +9,7 @@ const run = require('./utils/run.js');
 
 const rsbuildConfigPath = path.join(__dirname, './rsbuild.config.ts');
 const vitestConfigPath = path.join(__dirname, './vitest.config.ts');
+const utilsPath = path.join(__dirname, './utils');
 
 const [, , script, ...rest] = process.argv;
 
@@ -16,7 +17,7 @@ const scripts = {
   start: { command: 'rsbuild', args: ['dev', '--config', rsbuildConfigPath, ...rest] },
   build: { command: 'rsbuild', args: ['build', '--config', rsbuildConfigPath, ...rest] },
   test: { command: 'vitest', args: ['--config', vitestConfigPath, ...rest] },
-  icons: { command: 'node', args: ['./utils/icons.js'] },
+  icons: { command: 'node', args: [`${utilsPath}/icons.js`] },
 };
 
 const { command, args } = scripts[script];
