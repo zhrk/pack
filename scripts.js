@@ -16,6 +16,7 @@ const scripts = {
   start: { command: 'rsbuild', args: ['dev', '--config', rsbuildConfigPath, ...rest] },
   build: { command: 'rsbuild', args: ['build', '--config', rsbuildConfigPath, ...rest] },
   test: { command: 'vitest', args: ['--config', vitestConfigPath, ...rest] },
+  icons: { command: 'node', args: ['./utils/icons.js'] },
 };
 
 const { command, args } = scripts[script];
