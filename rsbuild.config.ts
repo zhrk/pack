@@ -24,6 +24,7 @@ export default defineConfig({
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   tools: {
+    lightningcssLoader: false,
     postcss: (_, { addPlugins }) => {
       addPlugins(
         require('postcss-functions')({
