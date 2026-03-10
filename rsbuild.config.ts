@@ -25,6 +25,13 @@ export default defineConfig({
   ],
   tools: {
     lightningcssLoader: false,
+    rspack: (config, { rspack }) => {
+      config.plugins.push(
+        new rspack.LightningCssMinimizerRspackPlugin({ minimizerOptions: { targets: [] } })
+      );
+
+      return config;
+    },
     postcss: (_, { addPlugins }) => {
       addPlugins(
         require('postcss-functions')({
