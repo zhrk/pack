@@ -34,7 +34,7 @@ export default defineConfig({
     },
     postcss: (_, { addPlugins }) => {
       addPlugins([
-        require('postcss-custom-media')(),
+        require('postcss-custom-media').default(),
         require('postcss-functions')({
           functions: {
             'color-opacity': (color: string, opacity: string) =>
