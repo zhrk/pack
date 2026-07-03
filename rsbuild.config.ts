@@ -1,5 +1,4 @@
-import path from 'node:path';
-import { createRequire } from 'node:module';
+import path from 'path';
 import { defineConfig } from '@rsbuild/core';
 import { pluginEslint } from '@rsbuild/plugin-eslint';
 import { pluginReact } from '@rsbuild/plugin-react';
@@ -7,7 +6,6 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
-const require = createRequire(import.meta.url);
 const dev = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
@@ -20,7 +18,11 @@ export default defineConfig({
     sourceMap: dev ? { js: 'source-map', css: true } : { js: 'hidden-source-map' },
   },
   plugins: [
-    pluginSass(),
+    pluginSass({
+      sassLoaderOptions: {
+        additionalData: `@use "${path.resolve(process.cwd(), 'src/styles/breakpoints.scss')}" as *;`,
+      },
+    }),
     pluginReact(),
     pluginTypeCheck({ enable: dev }),
     pluginEslint({ enable: dev, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
@@ -32,21 +34,18 @@ export default defineConfig({
       config.plugins.push(
         new rspack.LightningCssMinimizerRspackPlugin({ minimizerOptions: { targets: [] } })
       );
+
       return config;
     },
     postcss: (_, { addPlugins }) => {
-      addPlugins([
-        require('@csstools/postcss-global-data')({
-          files: [path.resolve(process.cwd(), 'src/styles/breakpoints.scss')],
-        }),
-        require('postcss-custom-media')(),
+      addPlugins(
         require('postcss-functions')({
           functions: {
             'color-opacity': (color: string, opacity: string) =>
               `color-mix(in srgb, ${color}, transparent ${(1 - parseFloat(opacity)) * 100}%)`,
           },
-        }),
-      ]);
+        })
+      );
     },
   },
 });
