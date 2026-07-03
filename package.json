@@ -1,6 +1,6 @@
 {
   "name": "@zhrk/pack",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "repository": "https://github.com/zhrk/pack",
   "scripts": {
     "release": "npm publish --access public",
