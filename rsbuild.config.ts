@@ -33,14 +33,15 @@ export default defineConfig({
       return config;
     },
     postcss: (_, { addPlugins }) => {
-      addPlugins(
+      addPlugins([
+        require('postcss-custom-media')(),
         require('postcss-functions')({
           functions: {
             'color-opacity': (color: string, opacity: string) =>
               `color-mix(in srgb, ${color}, transparent ${(1 - parseFloat(opacity)) * 100}%)`,
           },
-        })
-      );
+        }),
+      ]);
     },
   },
 });
