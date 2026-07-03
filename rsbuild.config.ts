@@ -1,3 +1,5 @@
+import path from 'node:path';
+import { createRequire } from 'node:module';
 import { defineConfig } from '@rsbuild/core';
 import { pluginEslint } from '@rsbuild/plugin-eslint';
 import { pluginReact } from '@rsbuild/plugin-react';
@@ -5,6 +7,7 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
+const require = createRequire(import.meta.url);
 const dev = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
@@ -29,12 +32,14 @@ export default defineConfig({
       config.plugins.push(
         new rspack.LightningCssMinimizerRspackPlugin({ minimizerOptions: { targets: [] } })
       );
-
       return config;
     },
     postcss: (_, { addPlugins }) => {
       addPlugins([
-        require('postcss-custom-media').default(),
+        require('@csstools/postcss-global-data')({
+          files: [path.resolve(process.cwd(), 'src/styles/breakpoints.scss')],
+        }),
+        require('postcss-custom-media')(),
         require('postcss-functions')({
           functions: {
             'color-opacity': (color: string, opacity: string) =>
