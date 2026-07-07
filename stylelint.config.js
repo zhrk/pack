@@ -2,6 +2,15 @@ module.exports = {
   customSyntax: 'postcss-scss',
   plugins: ['stylelint-order'],
   rules: {
+    'order/order': [
+      {
+        type: 'custom-properties',
+      },
+      {
+        type: 'declarations',
+        emptyLineBefore: 'always',
+      },
+    ],
     'order/properties-order': [
       {
         groupName: 'block-meta',
