@@ -3,13 +3,13 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     'order/order': [
-      {
-        type: 'custom-properties',
-      },
-      {
-        type: 'declarations',
-        emptyLineBefore: 'always',
-      },
+      [
+        'custom-properties',
+        {
+          type: 'declarations',
+          emptyLineBefore: 'always',
+        },
+      ],
     ],
     'order/properties-order': [
       {
@@ -40,7 +40,15 @@ module.exports = {
       },
       {
         groupName: 'block-size',
-        properties: ['max-width', 'min-width', 'width', 'max-height', 'min-height', 'height', 'aspect-ratio'],
+        properties: [
+          'max-width',
+          'min-width',
+          'width',
+          'max-height',
+          'min-height',
+          'height',
+          'aspect-ratio',
+        ],
       },
       {
         groupName: 'block-display',
