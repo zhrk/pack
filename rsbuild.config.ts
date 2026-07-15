@@ -45,7 +45,7 @@ export default defineConfig({
         require('postcss-functions')({
           functions: {
             'color-opacity': (color: string, opacity: string) =>
-              `color-mix(in srgb, ${color} ${parseFloat(opacity) * 100}%, transparent)`,
+              `rgb(from ${color} r g b / ${parseFloat(opacity) * 100}%)`,
           },
         })
       );
