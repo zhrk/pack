@@ -1,3 +1,4 @@
+import lightDark from '@csstools/postcss-light-dark-function';
 import { defineConfig } from '@rsbuild/core';
 import { pluginEslint } from '@rsbuild/plugin-eslint';
 import { pluginReact } from '@rsbuild/plugin-react';
@@ -41,15 +42,16 @@ export default defineConfig({
       return config;
     },
     postcss: (_, { addPlugins }) => {
-      addPlugins(
+      addPlugins([
+        lightDark(),
         require('postcss-functions')({
           functions: {
             'color-opacity': (color: string, opacity: string) => {
               return `color-mix(in srgb, ${color}, transparent ${100 - parseFloat(opacity) * 100}%)`;
             },
           },
-        })
-      );
+        }),
+      ]);
     },
   },
 });
