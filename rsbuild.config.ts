@@ -4,7 +4,10 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginSvgr } from '@rsbuild/plugin-svgr';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+import { createRequire } from 'module';
 import path from 'path';
+
+const require = createRequire(import.meta.url);
 
 const dev = process.env.NODE_ENV === 'development';
 
@@ -27,8 +30,16 @@ export default defineConfig({
       },
     }),
     pluginReact(),
-    pluginTypeCheck({ enable: dev }),
-    pluginEslint({ enable: dev, eslintPluginOptions: { emitWarning: false, configType: 'flat' } }),
+    pluginTypeCheck({
+      enable: dev,
+      tsCheckerOptions: {
+        typescript: { tsgo: true, typescriptPath: require.resolve('@typescript/native') },
+      },
+    }),
+    pluginEslint({
+      enable: dev,
+      eslintPluginOptions: { configType: 'flat', severity: { error: 'warning' } },
+    }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   tools: {
