@@ -142,6 +142,8 @@ module.exports = [
       'react/button-has-type': ['error'],
       'react/jsx-fragments': ['error', 'syntax'],
       'react/jsx-no-constructed-context-values': ['error'],
+
+      // react-hooks
       'react-hooks/rules-of-hooks': ['error'],
       'react-hooks/exhaustive-deps': ['error'],
 
