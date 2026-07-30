@@ -3,7 +3,6 @@ const typescriptEslint = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
 const { defineConfig } = require('eslint/config');
 const importPlugin = require('eslint-plugin-import');
-const jsxA11Y = require('eslint-plugin-jsx-a11y');
 const prettier = require('eslint-plugin-prettier');
 const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
@@ -19,7 +18,6 @@ module.exports = [
       react,
       prettier,
       import: importPlugin,
-      'jsx-a11y': jsxA11Y,
       '@typescript-eslint': typescriptEslint,
     },
     languageOptions: { globals: { ...globals.browser, ...globals.node }, parser: tsParser },
