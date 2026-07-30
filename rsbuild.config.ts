@@ -39,10 +39,7 @@ export default defineConfig({
         },
       },
     }),
-    pluginEslint({
-      enable: dev,
-      eslintPluginOptions: { configType: 'flat', severity: { error: 'warning' } },
-    }),
+    pluginEslint({ enable: dev, eslintPluginOptions: { configType: 'flat' } }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   tools: {
