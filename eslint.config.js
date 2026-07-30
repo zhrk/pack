@@ -123,49 +123,6 @@ module.exports = [
       'prefer-promise-reject-errors': ['error'],
       'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
       'require-await': ['error'],
-      // 'no-underscore-dangle': [
-      //   'error',
-      //   {
-      //     enforceInMethodNames: true,
-      //     allowFunctionParams: false,
-      //     enforceInClassFields: true,
-      //     allowInArrayDestructuring: false,
-      //     allowInObjectDestructuring: false,
-      //   },
-      // ],
-      'no-restricted-properties': [
-        'error',
-        {
-          object: 'global',
-          property: 'isFinite',
-          message: 'Use Number.isFinite instead',
-        },
-        {
-          object: 'self',
-          property: 'isFinite',
-          message: 'Use Number.isFinite instead',
-        },
-        {
-          object: 'window',
-          property: 'isFinite',
-          message: 'Use Number.isFinite instead',
-        },
-        {
-          object: 'global',
-          property: 'isNaN',
-          message: 'Use Number.isNaN instead',
-        },
-        {
-          object: 'self',
-          property: 'isNaN',
-          message: 'Use Number.isNaN instead',
-        },
-        {
-          object: 'window',
-          property: 'isNaN',
-          message: 'Use Number.isNaN instead',
-        },
-      ],
       'no-restricted-globals': ['error', ...confusingGlobals],
 
       // prettier
