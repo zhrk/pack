@@ -33,7 +33,10 @@ export default defineConfig({
     pluginTypeCheck({
       enable: dev,
       tsCheckerOptions: {
-        typescript: { tsgo: true, typescriptPath: require.resolve('@typescript/native') },
+        typescript: {
+          tsgo: true,
+          typescriptPath: require.resolve('@typescript/native/package.json'),
+        },
       },
     }),
     pluginEslint({
