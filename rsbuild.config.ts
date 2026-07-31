@@ -12,7 +12,7 @@ const require = createRequire(import.meta.url);
 const dev = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
-  dev: { cliShortcuts: false },
+  dev: { cliShortcuts: false, client: { logLevel: 'warn' } },
   html: { template: './public/index.html' },
   server: { printUrls: false, strictPort: true, publicDir: { watch: true } },
   output: {
@@ -39,7 +39,10 @@ export default defineConfig({
         },
       },
     }),
-    pluginEslint({ enable: dev, eslintPluginOptions: { configType: 'flat' } }),
+    pluginEslint({
+      enable: dev,
+      eslintPluginOptions: { configType: 'flat', severity: { warning: 'off' } },
+    }),
     pluginSvgr({ svgrOptions: { ref: true, icon: true, exportType: 'default' } }),
   ],
   tools: {
