@@ -14,7 +14,7 @@ const dev = process.env.NODE_ENV === 'development';
 export default defineConfig({
   dev: { cliShortcuts: false, client: { logLevel: 'warn' } },
   html: { template: './public/index.html' },
-  server: { printUrls: false, strictPort: true, publicDir: { watch: true } },
+  server: { host: true, printUrls: false, strictPort: true, publicDir: { watch: true } },
   output: {
     distPath: { root: 'build' },
     cssModules: { localIdentName: '[local]_[hash:6]' },
