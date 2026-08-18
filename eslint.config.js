@@ -2,10 +2,11 @@ const pluginQuery = require('@tanstack/eslint-plugin-query');
 const typescriptEslint = require('@typescript-eslint/eslint-plugin');
 const tsParser = require('@typescript-eslint/parser');
 const { defineConfig } = require('eslint/config');
-const importPlugin = require('eslint-plugin-import');
+const importX = require('eslint-plugin-import-x');
 const prettier = require('eslint-plugin-prettier');
 const react = require('eslint-plugin-react');
 const reactHooks = require('eslint-plugin-react-hooks');
+const { createTypeScriptImportResolver } = require('eslint-import-resolver-typescript');
 const globals = require('globals');
 const confusingGlobals = require('confusing-browser-globals');
 
@@ -17,15 +18,15 @@ module.exports = [
     plugins: {
       react,
       prettier,
-      import: importPlugin,
+      'import-x': importX,
       '@typescript-eslint': typescriptEslint,
     },
     languageOptions: { globals: { ...globals.browser, ...globals.node }, parser: tsParser },
     settings: {
       react: { version: 'detect' },
-      'import/extensions': ['.js', '.ts', '.tsx', '.json'],
-      'import/resolver': { node: { extensions: ['.js', '.ts', '.tsx', '.json'] } },
-      'import/ignore': ['node_modules', '\.(scss|svg|json)$'],
+      'import-x/extensions': ['.js', '.ts', '.tsx', '.json'],
+      'import-x/resolver-next': [createTypeScriptImportResolver()],
+      'import-x/ignore': ['node_modules', '\.(scss|svg|json)$'],
     },
     rules: {
       curly: ['error', 'multi-line'],
@@ -147,14 +148,14 @@ module.exports = [
       'react-hooks/rules-of-hooks': ['error'],
       'react-hooks/exhaustive-deps': ['error'],
 
-      // import
-      'import/no-duplicates': ['error'],
-      'import/newline-after-import': ['error'],
-      'import/no-named-default': ['error'],
-      'import/no-self-import': ['error'],
-      'import/no-cycle': ['error', { maxDepth: 1 }],
-      'import/no-useless-path-segments': ['error', { noUselessIndex: true, commonjs: true }],
-      'import/order': [
+      // import-x
+      'import-x/no-duplicates': ['error'],
+      'import-x/newline-after-import': ['error'],
+      'import-x/no-named-default': ['error'],
+      'import-x/no-self-import': ['error'],
+      'import-x/no-cycle': ['error', { maxDepth: 1 }],
+      'import-x/no-useless-path-segments': ['error', { noUselessIndex: true, commonjs: true }],
+      'import-x/order': [
         'error',
         {
           named: true,
